@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import url('./header.css');
+
+:root {
+  font-size: 62.5%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  --light-background-color: #EDEDED;
+  --light-font-color: #1A1A1A;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--light-background-color);
+  color: var(--light-font-color);
+}
+
+.input {
+  box-sizing: border-box;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+}
