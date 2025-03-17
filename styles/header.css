@@ -1,19 +1,11 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem;
 }
 
-.search-bar {
-  width: 70%;
-  font-size: 1.6rem;
-}
-
-.search-bar:hover {
-  border: 1px solid #2b2a2a1e;
-}
-
-.search-bar:focus {
-  outline: none;
-  border: 1px solid #2b2a2a30;
+.icon {
+  width: 3rem;
+  height: 3rem;
 }

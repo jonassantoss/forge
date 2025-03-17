@@ -5,24 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=menu"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=search"
-    />
     <title>MyNotion</title>
   </head>
   <body>
     <header class="header">
-      <span class="hamburger-menu material-symbols-outlined"> menu </span>
-      <div>
-        <span class="material-symbols-outlined"> search </span>
-        <input type="text" class="input search-bar" />
-      </div>
-      <div></div>
+      <img class="icon" src="assets/icons/search.svg" alt="icone search" />
     </header>
+
+    <main>
+      <div class="section">
+        <h1 class="welcome">Greetings, User</h1>
+      </div>
+      <section class="section cards_section">
+        <div class="cards_section_title">
+          <img src="assets/icons/clock.svg" alt="icone relógio" />
+          <p class="cards_section_title-text">Visitados recentemente</p>
+        </div>
+        <div class="carousel">
+          <div class="cards">
+            <div class="card">
+              <div class="card_header">
+                <div class="card_header-background"></div>
+                <img
+                  class="card-icon"
+                  src="./assets/icons/android.svg"
+                  alt="icon android"
+                />
+              </div>
+              <p class="card-title">New Note</p>
+              <div class="card-timestamp">
+                <p class="card-timestamp-title">Just now</p>
+              </div>
+              <div class="card-hover"></div>
+            </div>
+
+            <div class="card">
+              <div class="card_header">
+                <div class="card_header-background"></div>
+                <img
+                  class="card-icon"
+                  src="./assets/icons/android.svg"
+                  alt="icon android"
+                />
+              </div>
+              <p class="card-title">New Note</p>
+              <div class="card-timestamp">
+                <p class="card-timestamp-title">Just now</p>
+              </div>
+              <div class="card-hover"></div>
+            </div>
+
+            <div class="card">
+              <div class="card_header">
+                <div class="card_header-background"></div>
+                <img
+                  class="card-icon"
+                  src="./assets/icons/android.svg"
+                  alt="icon android"
+                />
+              </div>
+              <p class="card-title">New Note</p>
+              <div class="card-timestamp">
+                <p class="card-timestamp-title">Just now</p>
+              </div>
+              <div class="card-hover"></div>
+            </div>
+
+            <div class="card">
+              <div class="card_header">
+                <div class="card_header-background"></div>
+                <img
+                  class="card-icon"
+                  src="./assets/icons/android.svg"
+                  alt="icon android"
+                />
+              </div>
+              <p class="card-title">New Note</p>
+              <div class="card-timestamp">
+                <p class="card-timestamp-title">Just now</p>
+              </div>
+              <div class="card-hover"></div>
+            </div>
+
+            <div class="card">
+              <div class="card_header">
+                <div class="card_header-background"></div>
+                <img
+                  class="card-icon"
+                  src="./assets/icons/android.svg"
+                  alt="icon android"
+                />
+              </div>
+              <p class="card-title">New Note</p>
+              <div class="card-timestamp">
+                <p class="card-timestamp-title">Just now</p>
+              </div>
+              <div class="card-hover"></div>
+            </div>
+
+            <div class="card">
+              <div class="card_header">
+                <div class="card_header-background"></div>
+                <img
+                  class="card-icon"
+                  src="./assets/icons/android.svg"
+                  alt="icon android"
+                />
+              </div>
+              <p class="card-title">New Note</p>
+              <div class="card-timestamp">
+                <p class="card-timestamp-title">Just now</p>
+              </div>
+              <div class="card-hover"></div>
+            </div>
+          </div>
+
+          <button class="carousel-btn btn-left">&lt;</button>
+          <button class="carousel-btn btn-right">&gt;</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/carousel.js"></script>
   </body>
 </html>

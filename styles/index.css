@@ -1,13 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
-@import url('./header.css');
+@import url("./header.css");
+@import url("./cards.css");
 
 :root {
   font-size: 62.5%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
-  --light-background-color: #EDEDED;
-  --light-font-color: #1A1A1A;
+  --light-background-color: #ededed;
+  --light-font-color: #1a1a1a;
+  --light-gray: #787786;
+
+  --default-card-header: #f6f6f5;
+  --card-border: #2b2a2a;
 }
 
 body {
@@ -17,9 +22,24 @@ body {
   color: var(--light-font-color);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
 .input {
   box-sizing: border-box;
   border: none;
   border-radius: 12px;
-  padding: 1rem;
+  padding: 1.1rem;
+}
+
+.welcome {
+  font-size: 4rem;
+  line-height: 36px;
+  font-weight: 600;
+  text-align: center;
 }
