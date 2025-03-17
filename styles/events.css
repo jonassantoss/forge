@@ -1,0 +1,38 @@
+.events {
+  width: 100%;
+  min-height: 270px;
+  display: flex;
+  transition: background 20ms ease-in;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #2b2a2a30;
+  background-color: transparent;
+  box-shadow: unset;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.event_icon {
+  width: 50px;
+  height: 50px;
+  color: var(--light-gray);
+}
+
+.event_text {
+  font-size: 1.4rem;
+  line-height: 21px;
+  color: var(--light-gray);
+}
+
+.event_add-button {
+  font-size: 1.4rem;
+  line-height: 17px;
+  color: #2383e2;
+}
+
+.event_add-button:hover {
+  cursor: pointer;
+  color: #0a76e2;
+}

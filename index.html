@@ -16,11 +16,13 @@
       <div class="section">
         <h1 class="welcome">Greetings, User</h1>
       </div>
+
       <section class="section cards_section">
-        <div class="cards_section_title">
+        <div class="section_title">
           <img src="assets/icons/clock.svg" alt="icone relógio" />
-          <p class="cards_section_title-text">Visitados recentemente</p>
+          <p class="section_title-text">Visitados recentemente</p>
         </div>
+
         <div class="cards">
           <div class="card">
             <div class="card_header">
@@ -117,6 +119,59 @@
             </div>
             <div class="card-hover"></div>
           </div>
+
+          <div class="card">
+            <div class="card_header">
+              <div class="card_header-background"></div>
+              <img
+                class="card-icon"
+                src="./assets/icons/android.svg"
+                alt="icon android"
+              />
+            </div>
+            <p class="card-title">New Note</p>
+            <div class="card-timestamp">
+              <p class="card-timestamp-title">Just now</p>
+            </div>
+            <div class="card-hover"></div>
+          </div>
+
+          <div class="card">
+            <div class="card_header">
+              <div class="card_header-background"></div>
+              <img
+                class="card-icon"
+                src="./assets/icons/android.svg"
+                alt="icon android"
+              />
+            </div>
+            <p class="card-title">New Note</p>
+            <div class="card-timestamp">
+              <p class="card-timestamp-title">Just now</p>
+            </div>
+            <div class="card-hover"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section events_section">
+        <div class="section_title">
+          <img src="assets/icons/calendar.svg" alt="icone calendário" />
+          <p class="section_title-text">Eventos a caminho</p>
+        </div>
+
+        <div class="events">
+          <img
+            class="event_icon"
+            src="assets/icons/calendar.svg"
+            alt="icone calendar"
+          />
+          <p class="event_text">Nenhum evento daqui 3 dias</p>
+          <input
+            class="button event_add-button"
+            type="button"
+            value="+ Novo evento"
+          />
         </div>
       </section>
     </main>
