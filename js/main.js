@@ -1,152 +1,55 @@
-const newCard = document.querySelector(".card");
+import { createCardNote } from "./components/Card.js";
+import { NotesService } from "./services/notes.js";
+
+const notesService = new NotesService();
 const notesSection = document.querySelector(".notes");
 const newCardModal = document.querySelector("#new-card-modal");
-const cardModal = document.querySelector("#card-modal");
 const closeModal = document.querySelector(".close-button");
 const createButtonCard = document.querySelector(".modal__form-submit");
 const textarea = document.querySelector(".note-content");
-let notes = [];
-let id = 0;
 
-newCard.addEventListener("click", () => {
-  newCardModal.style.display = "flex";
-});
-
-closeModal.addEventListener("click", handleCloseModal);
-
-createButtonCard.addEventListener("click", (event) => handleSaveNote(event));
-
-function handleCloseModal() {
-  newCardModal.style.display = "none";
+function initialize() {
+  const notes = notesService.getNotes();
+  renderNotes(notes);
+  setupEventListeners();
 }
 
-function getNotes() {
-  const notesOnStorage = localStorage.getItem("notes");
+function setupEventListeners() {
+  document.querySelector(".card").addEventListener("click", () => {
+    newCardModal.style.display = "flex";
+  });
 
-  if (notesOnStorage) {
-    notes = JSON.parse(notesOnStorage);
-    id = getLastId(notes);
-  }
+  closeModal.addEventListener("click", () => {
+    newCardModal.style.display = "none";
+  });
 
-  renderNotes();
+  createButtonCard.addEventListener("click", handleSaveNote);
 }
 
-function getLastId(notes) {
-  let lastId = 0;
+function renderNotes(notes) {
+  const existingNoteIds = new Set(
+    Array.from(notesSection.children).map((el) =>
+      el.getAttribute("data-note-id")
+    )
+  );
 
   for (const note of notes) {
-    console.log(note);
-    if (lastId === 0) {
-      lastId = note.id;
-    } else if (lastId < note.id) {
-      lastId = note.id;
+    if (!existingNoteIds.has(String(note.id))) {
+      const cardNote = createCardNote(note.date, note.content);
+      cardNote.setAttribute("data-note-id", note.id);
+      notesSection.appendChild(cardNote);
     }
   }
-
-  lastId++;
-  return lastId;
-}
-
-function renderNotes() {
-  for (const note of notes) {
-    const cardNote = createCardNote(note.date, note.content);
-    notesSection.appendChild(cardNote);
-  }
-}
-
-function createCardNote(date, content) {
-  const button = document.createElement("button");
-  button.classList.add("card");
-  button.style.position = "relative";
-
-  const title = createCardTitle(date);
-  const cardContent = createCardContent(content);
-  const gradient = createCardGradient();
-
-  button.appendChild(title);
-  button.appendChild(cardContent);
-  button.appendChild(gradient);
-
-  return button;
-}
-
-function createCardTitle(date) {
-  const span = document.createElement("span");
-  span.classList.add("card-title");
-  span.textContent = formatRelativeTime(date);
-  return span;
-}
-
-function createCardContent(content) {
-  const p = document.createElement("p");
-  p.classList.add("card-description");
-  p.textContent = content;
-  return p;
-}
-
-function createCardGradient() {
-  const div = document.createElement("div");
-  div.classList.add("gradient");
-  return div;
 }
 
 function handleSaveNote(event) {
   event.preventDefault();
-
   const content = textarea.value;
-  onNoteCreated(content);
-  handleCloseModal();
+  const newNote = notesService.createNote(content);
+  const cardNote = createCardNote(newNote.date, newNote.content);
+  notesSection.prepend(cardNote);
+  newCardModal.style.display = "none";
+  textarea.value = "";
 }
 
-function onNoteCreated(content) {
-  const newNote = {
-    id,
-    date: new Date(),
-    content,
-  };
-
-  id++;
-
-  const notesArray = [newNote, ...notes];
-
-  notes = notesArray;
-
-  localStorage.setItem("notes", JSON.stringify(notesArray));
-}
-
-function formatRelativeTime(dateString) {
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffInSeconds = Math.floor((now - date) / 1000);
-
-  if (diffInSeconds < 60) {
-    return "Agora mesmo";
-  }
-
-  const diffInMinutes = Math.floor(diffInSeconds / 60);
-  if (diffInMinutes < 60) {
-    return `Há ${diffInMinutes} ${diffInMinutes === 1 ? "minuto" : "minutos"}`;
-  }
-
-  const diffInHours = Math.floor(diffInMinutes / 60);
-  if (diffInHours < 24) {
-    return `Há ${diffInHours} ${diffInHours === 1 ? "hora" : "horas"}`;
-  }
-
-  const diffInDays = Math.floor(diffInHours / 24);
-  if (diffInDays < 30) {
-    return `Há ${diffInDays} ${diffInDays === 1 ? "dia" : "dias"}`;
-  }
-
-  const diffInMonths = Math.floor(diffInDays / 30);
-  if (diffInMonths < 12) {
-    return `Há cerca de ${diffInMonths} ${
-      diffInMonths === 1 ? "mês" : "meses"
-    }`;
-  }
-
-  const diffInYears = Math.floor(diffInDays / 365);
-  return `Há cerca de ${diffInYears} ${diffInYears === 1 ? "ano" : "anos"}`;
-}
-
-getNotes();
+initialize();
