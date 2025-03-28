@@ -22,16 +22,16 @@
       <div class="divider"></div>
 
       <div class="notes">
-        <button class="new-card" aria-haspopup="dialog">
-          <span class="new-card-title">Adicionar nota</span>
-          <p class="new-card-description">
+        <button class="card">
+          <span class="card-title">Adicionar nota</span>
+          <p class="card-description">
             Crie uma nova nota e a estilize da maneira que desejar.
           </p>
         </button>
       </div>
     </main>
 
-    <div class="modal__overlay">
+    <div class="modal__overlay" id="new-card-modal">
       <div class="modal__content">
         <img class="close-button" src="assets/icons/close.svg" alt="fechar" />
 
@@ -39,18 +39,20 @@
           <div class="modal__form-container">
             <span class="modal__form-title">Adicionar nota</span>
 
-            <p class="modal__form-desc">
-              Comece
-              <span class="modal__form-record-note">gravando uma nota</span> em
-              aúdio ou se preferir
-              <span class="modal__form-write-note">utilize apenas texto.</span>
-            </p>
+            <textarea
+              class="note-content"
+              name="note-content"
+              autofocus
+              placeholder="Comece a escrever..."
+            ></textarea>
           </div>
 
           <button type="submit" class="modal__form-submit">Salvar nota</button>
         </form>
       </div>
     </div>
+
+    <div class="modal__overlay" id="card-modal"></div>
 
     <script src="js/main.js"></script>
   </body>

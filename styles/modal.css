@@ -46,21 +46,19 @@
   color: var(--slate-300);
 }
 
-.modal__form-desc {
+.note-content {
+  font-size: 14px;
   line-height: 24px;
   color: var(--slate-400);
+  background-color: transparent;
+  resize: none;
+  flex: 1;
+  outline: none;
+  border: none;
 }
 
-.modal__form-record-note,
-.modal__form-write-note {
-  font-weight: 500;
-  color: var(--lime-400);
-  cursor: pointer;
-}
-
-.modal__form-record-note:hover,
-.modal__form-write-note:hover {
-  text-decoration: underline;
+.note-content::placeholder {
+  color: var(--slate-400);
 }
 
 .modal__form-submit {
