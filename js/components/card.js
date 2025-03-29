@@ -24,10 +24,10 @@ function createCardTitle(date) {
 }
 
 function createCardContent(content) {
-  const p = document.createElement("p");
-  p.classList.add("card-description");
-  p.textContent = content;
-  return p;
+  const div = document.createElement("div");
+  div.classList.add("card-content");
+  div.textContent = content;
+  return div;
 }
 
 function createCardGradient() {

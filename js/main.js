@@ -1,4 +1,5 @@
 import { createCardNote } from "./components/Card.js";
+import { createCardModal } from "./components/modal.js";
 import { NotesService } from "./services/notes.js";
 
 const notesService = new NotesService();
@@ -7,6 +8,7 @@ const newCardModal = document.querySelector("#new-card-modal");
 const closeModal = document.querySelector(".close-button");
 const createButtonCard = document.querySelector(".modal__form-submit");
 const textarea = document.querySelector(".note-content");
+const body = document.body;
 
 function initialize() {
   const notes = notesService.getNotes();
@@ -37,9 +39,16 @@ function renderNotes(notes) {
     if (!existingNoteIds.has(String(note.id))) {
       const cardNote = createCardNote(note.date, note.content);
       cardNote.setAttribute("data-note-id", note.id);
+      cardNote.addEventListener("click", openCard);
       notesSection.appendChild(cardNote);
     }
   }
+}
+
+function openCard() {
+  const title = this.childNodes[0].innerHTML;
+  const content = this.childNodes[1].innerHTML;
+  const modal = createCardModal(title, content);
 }
 
 function handleSaveNote(event) {
