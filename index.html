@@ -22,7 +22,7 @@
       <div class="divider"></div>
 
       <div class="notes">
-        <button class="card">
+        <button class="card new-card">
           <span class="card-title">Adicionar nota</span>
           <p class="card-content">
             Crie uma nova nota e a estilize da maneira que desejar.
@@ -33,7 +33,11 @@
 
     <div class="modal__overlay" id="new-card-modal">
       <div class="modal__content">
-        <img class="close-button" src="assets/icons/close.svg" alt="fechar" />
+        <img
+          class="close-button close-new-card"
+          src="assets/icons/close.svg"
+          alt="fechar"
+        />
 
         <form class="modal__form">
           <div class="modal__form-container">
@@ -42,6 +46,7 @@
             <textarea
               class="note-content"
               name="note-content"
+              id="new-card-modal-content"
               autofocus
               placeholder="Comece a escrever..."
             ></textarea>

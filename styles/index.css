@@ -90,6 +90,8 @@ main {
   font-size: 1.4rem;
   line-height: 2.4rem;
   color: var(--slate-400);
+  outline: none;
+  border: none;
 }
 
 .card:hover {

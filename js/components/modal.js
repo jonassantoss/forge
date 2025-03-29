@@ -7,6 +7,14 @@ export function createCardModal(title, content) {
 
   closeButton.addEventListener("click", () => {
     contentContainer.remove();
+    modal.style.display = "none";
+  });
+
+  contentContainer.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      contentContainer.remove();
+      modal.style.display = "none";
+    }
   });
 
   contentContainer.appendChild(closeButton);
@@ -41,11 +49,13 @@ function createForm(title, content) {
   modalTitle.classList.add("modal__form-title");
   modalTitle.textContent = title;
 
-  const modalContent = document.createElement("div");
-  modalContent.innerHTML = content;
+  const formContent = document.createElement("div");
+  formContent.classList.add("card-content");
+  formContent.setAttribute("contenteditable", true);
+  formContent.innerHTML = content;
 
   formContainer.appendChild(modalTitle);
-  formContainer.appendChild(modalContent);
+  formContainer.appendChild(formContent);
 
   form.appendChild(formContainer);
 
